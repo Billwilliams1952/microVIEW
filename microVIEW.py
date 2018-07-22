@@ -356,16 +356,31 @@ class microVIEW ( Frame ):
 			callback=self.ToggleAnnotateFrameNum,language=self.language)
 		self.AnnotateFrameNum.grid(row=0,column=2,sticky='W',padx=(35,0))
 
+		f10 = Frame(AnnotateTab,style='F.TFrame')
+		f10.grid(row=1,column=0,sticky='nsew',pady=(15,0))
+		f10.columnconfigure(1,weight=1)
+
+		LangLabel(f10,text='Identify Text:',
+			language=self.language).grid(row=0,column=0,sticky='W')
+
+		self.identify = ''
+		self.identifyText = MultiTouchButton(f10,
+			text=['None',Globals.headingLevel1,Globals.headingLevel2],language=self.language,
+			background=Globals.defaultBackgroundColor,
+			callback=self.IdentifyTextChanged,
+			value=0,width=450)
+		self.identifyText.grid(row=0,column=1,sticky='ew',padx=(20,0))
+
 		self.annotateSize = Slider(AnnotateTab,text='Annotate Text Size',
 			language=self.language,
 			background=Globals.defaultBackgroundColor,
 			callback=self.AnnotateSizeChanged,_from=6,_to=160,width=300,
 			value=Globals.defaultAnnotateTextsize)
-		self.annotateSize.grid(row=1,column=0,columnspan=2,sticky='EW',
+		self.annotateSize.grid(row=2,column=0,columnspan=2,sticky='EW',
 			pady=(15,0))
 
 		f10 = Frame(AnnotateTab,style='F.TFrame')
-		f10.grid(row=2,column=0,sticky='nsew',pady=(15,0))
+		f10.grid(row=3,column=0,sticky='nsew',pady=(15,0))
 		f10.columnconfigure(2,weight=1)
 
 		self.enableTransparentBackgroundColor = PushButton(f10,width=50,
@@ -388,7 +403,7 @@ class microVIEW ( Frame ):
 			background=Globals.defaultBackgroundColor,language=self.language,
 			callback=self.AnnotateForegroundColorChanged,_from=0,_to=100,width=200,
 			value=Globals.annotateForegroundColor)
-		self.annotateForegroundColor.grid(row=3,column=0,columnspan=2,sticky='EW',
+		self.annotateForegroundColor.grid(row=4,column=0,columnspan=2,sticky='EW',
 			pady=(15,0))
 
 		self.ToggleTimestamp(Globals.timestampEnabled)
@@ -1179,12 +1194,24 @@ class microVIEW ( Frame ):
 		Globals.timestampEnabled = val
 		self.after(10,self.UpdateTimestamp())
 	def UpdateTimestamp ( self ):
-		if Globals.timestampEnabled:
-			try:	t = dt.datetime.now().strftime(Globals.defaulttimestampformat)
-			except:	t = self.language.GetText('Bad Format!') # Should never get here...
+		if Globals.timestampEnabled or len(self.identify) > 0:
+			t = self.identify
+			if Globals.timestampEnabled:
+				try:	t = t + dt.datetime.now().strftime(Globals.defaulttimestampformat)
+				except:	t = t + self.language.GetText('Bad Format!') # Should never get here...
 			self.camera.annotate_text = t
 			self.after(1000,self.UpdateTimestamp)
 		else:	self.camera.annotate_text = ''
+	def IdentifyTextChanged ( self, value ):
+		if value == 0:
+			self.identify = ""
+		else:
+			if value == 1:
+				self.identify = Globals.headingLevel1
+			else: 
+				self.identify = Globals.headingLevel2
+			self.after(10,self.UpdateTimestamp())
+		print(value,'Identify text=',self.identify)
 	'''
 	Generic helper function to pad image to the correct boundary
 	'''
