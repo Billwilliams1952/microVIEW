@@ -7,6 +7,25 @@ This work is a result of a collaboration between myself and Michael Axelsson, Pr
   
 This version of **microVIEW** is optimized for a 1280x800 touchscreen display. Where possible, all controls are simple pushbuttons or sliders that are created specifically for **microVIEW**. There are no text fields in the option panels. The buttons and sliders have been enlarged to minimize 'touch' errors. In general during normal opeation, a keyboard should not be needed.
 
+When **microVIEW** is first started, it creates a default **microVIEW.INI** file if one does not already exist. The default values may be edited to change many aspects of the program interface, file storage locations, and default camera programming values. Key **microVIEW.INI** data that the user may want to initially edit include:
+
+**Under [Preferences]**
+
+| INI Field    | Default Value | Notes |
+| :--------- | :-------------------------- | :------------------------------------------------------ |
+| defaultphotodir | /home/pi/Pictures | Default location for photos captured by user |
+| defaultvideodir | /home/pi/Videos | Default location for videos captured by user |
+| defaultfilesdir | /home/pi/Documents | Default location for any text data created by **microVIEW** |
+| defaulttimelapsephotodir | /home/pi/Pictures | Default location for photos captured by timelapse |
+| defaulttimelapsevideodir | /home/pi/Videos | Default location for videos captured by timelapse |
+  
+**Under [Network]**
+
+| INI Field    | Default Value | Notes |
+| :--------- | :-------------------------- | :------------------------------------------------------ |
+| headinglevel1 | microVIEW | The first line (larger font) displayed on the streaming website. Both headingLevel1 and headingLevel2 are available for annotations too. |
+| headinglevel2 | Streaming Live Video from Station 1 | The second line (smaller font) displayed on the streaming website. headingLevel2 may be used to identify the station (or computer system) that is streaming. Both headingLevel1 and headingLevel2 are available for annotations too. |
+
 Basic camera programming functions are provided. In order to simplify the user interface, many of the advanced options for programming the camera are not provided. However, should the need arise, additional functionality can be readily added.
 
 If running under Python 3.X, a simple web server is provided, allowing the user to stream the video over a local network. Both Ethernet and WiFi are supported.
