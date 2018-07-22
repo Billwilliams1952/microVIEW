@@ -1,12 +1,9 @@
 # microVIEW
-PiCamera user interface optimized for touchscreen. 
+PiCamera user interface optimized for a touchscreen display. 
 
 ## Motivation
 
-This work is a result of a collaboration between myself and Professor Michael Axelsson of 
-
-Note: I am an old (old, old, old, ..., so very old) Windows programmer going back to the days of Windows 2.1 (Petzold). Both the Python language as well as Linux on the Raspberry Pi are new to me, so please forgive unintentional (or blatant) misuses of the API or Python coding 'standards'.
-
+This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences. Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI Model 3 as the basic computer system. Coupled with the RPI camera; an SD card; a power cable; a touchscreen tablet; and 3-D printed parts used to mount the RPI camera to the microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software <INSERT LINK> to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a 1280x800 touchscreen display.
 
 ## Installation
 
