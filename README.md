@@ -23,18 +23,21 @@ Download the zip file and extract to a directory of your choosing. To run, open 
 
 | Issue      | Description / Workaround                               |
 | :--------- | :----------------------------------------------------- |
-|  |  |
+| Language Support | The language support is not complete for all controls and text messages throughout **microVIEW**. Also, I have not verified the accuracy/suitability of the translations. I have just used Google translate. I really need the translations reviewed by native speakers. |
+| | |
 
 ## TODO List (future enhancements)
 
 | TODO       | Description                               |
 | :--------- | :----------------------------------------------------- |
-|  | |
-|  |  |
+| Language Support | Continue to update translations as reviews are completed and suggestions are offered.|
+| Screen Size | **microVIEW** has been designed assuming a 1280 x 800 touch screen tablet. Provide support for other touchscreen sizes. |
+| Web Server | **microVIEW** uses a very simple web server to stream the video. Only Python 3.x is supported. Provide support for Python 2.x. Provide the ability to start / stop the web server. |
+| | |
 
 ## API Reference
 
-microVIEW has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. See the PiCameraApp About dialog for exact versions used.
+**microVIEW** has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. See the PiCameraApp About dialog for exact versions used.
 
 | Library    | Usage                                               |
 | :--------- | :-------------------------------------------------- |
