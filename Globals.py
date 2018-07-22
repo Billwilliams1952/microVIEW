@@ -23,10 +23,10 @@
 
 class Globals:
 	# [Preferences]
-	defaultphotodir = '/media/pi/USB_BACKUP/Pictures'
-	defaultvideodir = '/media/pi/USB_BACKUP/Videos'
-	defaulttimelapsephotodir = '/media/pi/USB_BACKUP/Pictures'
-	defaulttimelapsevideodir = '/media/pi/USB_BACKUP/Videos'
+	defaultphotodir = '/home/pi/Pictures'
+	defaultvideodir = '/home/pi/Videos'
+	defaulttimelapsephotodir = '/home/pi/Pictures'
+	defaulttimelapsevideodir = '/home/pi/Videos'
 	defaultfilesdir = '/home/pi/Documents'
 	defaultphotoname = 'Image_'
 	defaultphotoformat = 'jpg'
@@ -72,8 +72,8 @@ class Globals:
 	# [Network]
 	enableHTTPServer = False			# ALWAYS START AS FALSE
 	enableVideoStreaming = False
-	headingLevel1 = 'microVIEW Test Header 1'
-	headingLevel2 = 'Streaming live video from station 1'
+	headingLevel1 = 'microVIEW'
+	headingLevel2 = 'Streaming Live Video from Station 1'
 
 	# [Timelapse]
 	defaultTakePictureCount = 5
