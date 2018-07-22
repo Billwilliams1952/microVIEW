@@ -3,7 +3,11 @@ PiCamera user interface optimized for a touchscreen display.
 
 ## Motivation
 
-This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences. Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI Model 3 as the basic computer system. Coupled with the RPI camera; an SD card; a power cable; a touchscreen tablet; and 3-D printed parts used to mount the RPI camera to the microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software <INSERT LINK> to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a 1280x800 touchscreen display.
+This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences (http://www.bioenv.gu.se/personal/Axelsson_Michael/). Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI (RPI) Model 3 as the computer system. Coupled with the RPI camera; an SD card; a power cable; a touchscreen display; and 3-D printed parts used to mount the RPI camera to each microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software (https://github.com/Billwilliams1952/PiCameraApp) to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a 1280x800 touchscreen display.
+  
+This version of **microVIEW** is optimized for a 1280x800 touchscreen display. Where possible, all controls are simple pushbuttons or sliders. There are no text fields in the option panels. The buttons and sliders have been enlarged to minimize 'touch' errors. 
+
+
 
 ## Installation
 
