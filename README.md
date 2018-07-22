@@ -7,6 +7,7 @@ This work is a result of a collaboration between myself and Michael Axelsson, Pr
   
 This version of **microVIEW** is optimized for a 1280x800 touchscreen display. Where possible, all controls are simple pushbuttons or sliders. There are no text fields in the option panels. The buttons and sliders have been enlarged to minimize 'touch' errors. 
 
+If running under Python 3.X, a simple web server is provided, allowing the user to stream the video over a local network. Both Ethernet and WiFi are supported.
 
 
 ## Installation
@@ -38,7 +39,7 @@ Download the zip file and extract to a directory of your choosing. To run, open 
 
 ## API Reference
 
-**microVIEW** has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. See the PiCameraApp About dialog for exact versions used.
+**microVIEW** has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. See the **microVIEW** About tab for exact versions used.
 
 | Library    | Usage                                               |
 | :--------- | :-------------------------------------------------- |
