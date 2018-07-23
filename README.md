@@ -15,11 +15,12 @@ When **microVIEW** is first started, it creates a default **microVIEW.INI** file
 
 | INI Field    | Default Value | Notes |
 | :--------- | :-------------------------- | :------------------------------------------------------ |
-| defaultphotodir | /home/pi/Pictures | Default location for photos captured by user |
+| defaultphotodir | /home/pi/Pictures | Default location for photos captured by user. May also be selected under **Preferences \| Files**. This is also true for the remaining photo and video directories. |
 | defaultvideodir | /home/pi/Videos | Default location for videos captured by user |
-| defaultfilesdir | /home/pi/Documents | Default location for any text data created by **microVIEW** |
 | defaulttimelapsephotodir | /home/pi/Pictures | Default location for photos captured by timelapse |
 | defaulttimelapsevideodir | /home/pi/Videos | Default location for videos captured by timelapse |
+| defaultfilesdir | /home/pi/Documents | Default location for any text data created by **microVIEW** |
+
   
 **Under [Network]**
 
@@ -32,11 +33,13 @@ Basic camera programming functions are provided. In order to simplify the user i
 
 If running under Python 3.X, a simple web server is provided, allowing the user to stream the video over a local network. Both Ethernet and WiFi are supported.
 
-Both Video and Photo timelapse capture are provided.
+Both Video and Photo timelapse capture are provided. For photos, the rate of photo capture (e.g. every 10 seconds), and either the stop count (e.g. stop after 10 pictures) or delta time (e.g. stop after 2 hours) may be specified. Photo timelapse may occur even during a video capture or video timelapse. For videos, the rate of video capture (e.g. capture every 30 seconds), the video length (e.g. 10 seconds) and either the stop count (e.g. stop after 10 videos) or delta time (e.g. stop after 2 hours) may be specified. During Video Timelapse, the Video capture button on the main screen is disabled.
 
 **microVIEW** supports multiple languages via the **microVIEW.language** file. This file contains many (not all - yet) of the labels, button/control text and messages used by **microVIEW** interface, ordered by [Language] sections. Currently there are entries for English, Svenska (Swedish), Deutsche (German), Italiano (Italian), Español (Spanish), Nederlands (Dutch), and Français (French). Please note that many translations may not be accurate usage (since I was just using Google Translate). Also note that not all text has translations (yet). Please feel free to update the file and send me the updates as they are completed.  If the **microVIEW.language** file is missing at startup, a default **microVIEW.language** file is created with just English translations. When editing the **microVIEW.language** file, the user may insert a newline character (\n) to force a line break in the text. This is useful when trying to fit text within a control or label. For example:
 
-    `dynamicrangecompression = Dynamisk\nOmfångskompression:`
+```
+    dynamicrangecompression = Dynamisk\nOmfångskompression:
+```
 
 ## Installation
 
