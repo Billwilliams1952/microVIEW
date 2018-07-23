@@ -69,7 +69,7 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 
 ## API Reference
 
-**microVIEW** has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. See the **microVIEW** About tab for exact versions used.
+**microVIEW** has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. Refer to **Preferences \| About \| About** for the exact versions used.
 
 | Library    | Usage                                               |
 | :--------- | :-------------------------------------------------- |
