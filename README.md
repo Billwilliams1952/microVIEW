@@ -3,7 +3,9 @@ PiCamera user interface optimized for a touchscreen display.
 
 ## Motivation
 
-This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences (http://www.bioenv.gu.se/personal/Axelsson_Michael/). Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI (RPI) Model 3 as the computer system. Coupled with the RPI camera; an SD card; a power cable; a touchscreen display; and 3-D printed parts used to mount the RPI camera to each microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software (https://github.com/Billwilliams1952/PiCameraApp) to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a touchscreen display.
+This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences (http://www.bioenv.gu.se/personal/Axelsson_Michael/). Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI (RPI) Model 3 as the computer system. Coupled with an RPI camera (V2 model) with flex cable, an SD card (for the OS), a power cable, a touchscreen display (Sundfounder 10” screen (https://www.sunfounder.com/10-1-touch-screen.html) with a 3D printed enclosure, and 3-D printed parts used to mount the RPI camera to each microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software (https://github.com/Billwilliams1952/PiCameraApp) to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a touchscreen display.
+
+Professor Axelsson has documented the R&D effort - see http://microsurgery.se/ under the R/D tab.
 
 ## Design
 
@@ -11,7 +13,7 @@ This version of **microVIEW** is optimized for a 1280x800 touchscreen display ru
 
 When **microVIEW** is first started, it creates a default **microVIEW.INI** file if one does not already exist. The default values may be edited to change many aspects of the program interface, file storage locations, and default camera programming values. Key **microVIEW.INI** data that the user may want to initially edit include:
 
-**Under [Preferences]**
+### Under [Preferences]
 
 | INI Field    | Default Value | Notes |
 | :--------- | :-------------------------- | :------------------------------------------------------ |
@@ -22,7 +24,7 @@ When **microVIEW** is first started, it creates a default **microVIEW.INI** file
 | defaultfilesdir | /home/pi/Documents | Default location for any text data created by **microVIEW** |
 
   
-**Under [Network]**
+### Under [Network]
 
 | INI Field    | Default Value | Notes |
 | :--------- | :-------------------------- | :------------------------------------------------------ |
@@ -40,10 +42,6 @@ Multiple languages are supported via the **microVIEW.language** file. This file 
 ```
     dynamicrangecompression = Dynamisk\nOmfångskompression:
 ```
-
-## Installation
-
-Download the zip file and extract to a directory of your choosing. To run, open a terminal, change to the directory containing the source files, and enter **sudo python microVIEW.py** or **sudo python3 microVIEW.py**.  Note:, if you run under a Python version lower than 3.0, then the Webserver interface will not be available.
 
 ## Version History
 
@@ -77,7 +75,11 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 | PIL / Pillow | The Pillow fork of the Python Image Library. One issue is with PIL ImageTk under Python 3.x. It was not installed on my RPI. If you have similar PIL Import Errors use:  **sudo apt-get install python3-pil.imagetk**. |
 | netifaces | Library to help discover IP addresses. Install using **sudo pip3 install netifaces** for Python3 or **sudo pip install netifaces** for Python2 |
 
-## Installation on a Fresh Image
+## Installation
+
+Download the zip file and extract to a directory of your choosing. To run, open a terminal, change to the directory containing the source files, and enter **sudo python microVIEW.py** or **sudo python3 microVIEW.py**.  Note:, if you run under a Python version lower than 3.0, then the Webserver interface will not be available.
+
+### Installation on a Fresh Image
 
 On a fresh install of Raspbian
 
