@@ -7,7 +7,7 @@ This work is a result of a collaboration between myself and Michael Axelsson, Pr
 
 ## Design
 
-This version of **microVIEW** is optimized for a 1280x800 touchscreen display. Where possible, all controls are simple pushbuttons or sliders that are created specifically for **microVIEW**. There are no text fields in the option panels. The buttons and sliders have been enlarged to minimize 'touch' errors. In general during normal opeation, a keyboard should not be needed.
+This version of **microVIEW** is optimized for a 1280x800 touchscreen display running in fullscreen mode. Where possible, all controls are simple pushbuttons or sliders that are created specifically for **microVIEW**. There are no text fields in the option panels. The buttons and sliders have been enlarged to minimize 'touch' errors. In general during normal opeation, a keyboard should not be needed.
 
 When **microVIEW** is first started, it creates a default **microVIEW.INI** file if one does not already exist. The default values may be edited to change many aspects of the program interface, file storage locations, and default camera programming values. Key **microVIEW.INI** data that the user may want to initially edit include:
 
@@ -46,6 +46,8 @@ Multiple languages are supported via the **microVIEW.language** file. This file 
 Download the zip file and extract to a directory of your choosing. To run, open a terminal, change to the directory containing the source files, and enter **sudo python microVIEW.py** or **sudo python3 microVIEW.py**.  Note:, if you run under a Python version lower than 3.0, then the Webserver interface will not be available.
 
 ## Version History
+
+Refer to **Preferences \| About \| About** for the version number of **microVIEW**.
 
 | Version    | Notes                               |
 | :--------- | :----------------------------------------------------- |
