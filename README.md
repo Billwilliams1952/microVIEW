@@ -1,8 +1,6 @@
 # microVIEW
 PiCamera user interface optimized for a touchscreen display. 
 
-![Image](Assets\close.png?raw=true "Title")
-
 ## Motivation
 
 This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences (http://www.bioenv.gu.se/personal/Axelsson_Michael/). Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI (RPI) Model 3 as the computer system. Coupled with an RPI camera (V2 model) with flex cable, an SD card (for the OS), a power cable, a touchscreen display (Sundfounder 10” screen (https://www.sunfounder.com/10-1-touch-screen.html) with a 3D printed enclosure, and 3-D printed parts used to mount the RPI camera to each microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software (https://github.com/Billwilliams1952/PiCameraApp) to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a touchscreen display.
@@ -31,6 +29,20 @@ When **microVIEW** is first started, it creates a default **microVIEW.INI** file
 | :--------- | :-------------------------- | :------------------------------------------------------ |
 | headinglevel1 | microVIEW | The first line (larger font) displayed on the streaming website. Both headingLevel1 and headingLevel2 are available for annotations too. |
 | headinglevel2 | Streaming Live Video from Station 1 | The second line (smaller font) displayed on the streaming website. headingLevel2 may be used to identify the station (or computer system) that is streaming. Both headingLevel1 and headingLevel2 are available for annotations too. |
+
+## User Interface
+
+#### Main Screen
+When started, **microVIEW** displays a fullscreen preview of the video. Along the bottom are four buttons:
+
+![Image1](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/close.png?raw=true)		![Image2](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/options.png?raw=true)	![Image3](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/camera.png?raw=true)      ![Image4](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/video.png?raw=true)
+
+* The first button closes **microVIEW**.
+* The second button displays the options screen.
+* The third button takes a picture and saves the photo under the directory specified by defaultphotodir.
+* The fourth button starts video capture. While video capture is in progress, the video button will flash red. To stop the video capture, press the video capture button again. The video will be saved under the directory specified by defaultvideodir.
+
+#### Options Screen
 
 Basic camera programming functions are provided. In order to simplify the user interface, many of the advanced options for programming the camera are not provided. However, should the need arise, additional functionality can be readily added.
 
