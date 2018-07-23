@@ -585,6 +585,10 @@ class microVIEW ( Frame ):
 			foreground=Globals.defaultForegroundColor,
 			background=Globals.defaultBackgroundColor).grid(row=3,column=0,sticky='EW',pady=(20,0),padx=(10,0))
 
+		l = Label(AboutMeTab,text='Python version: %s' % python_version(),
+			font=f,foreground=Globals.defaultForegroundColor,
+			background=Globals.defaultBackgroundColor)
+		l.grid(row=4,column=0,sticky='NSEW',padx=(10,0))
 		if NoRequire:
 			PiVer = "Picamera library version unknown"
 			PILVer = "Pillow (PIL) library version unknown"
@@ -598,16 +602,16 @@ class microVIEW ( Frame ):
 
 		Label(AboutMeTab,text=PiVer,font=f,
 			foreground=Globals.defaultForegroundColor,
-			background=Globals.defaultBackgroundColor).grid(row=4,column=0,sticky='EW',padx=(10,0))
+			background=Globals.defaultBackgroundColor).grid(row=5,column=0,sticky='EW',padx=(10,0))
 		Label(AboutMeTab,text=PILVer,font=f,
 			foreground=Globals.defaultForegroundColor,
-			background=Globals.defaultBackgroundColor).grid(row=5,column=0,sticky='EW',padx=(10,0))
-		row = 6
+			background=Globals.defaultBackgroundColor).grid(row=6,column=0,sticky='EW',padx=(10,0))
+		row = 7
 		if sys.version_info[0] == 3:
 			Label(AboutMeTab,text=NetifaceVer,font=f,
 			foreground=Globals.defaultForegroundColor,
-			background=Globals.defaultBackgroundColor).grid(row=6,column=0,sticky='EW',padx=(10,0))
-			row = 7
+			background=Globals.defaultBackgroundColor).grid(row=7,column=0,sticky='EW',padx=(10,0))
+			row = 8
 		s = processor()
 		if s:
 			txt = 'Processor type: %s (%s)' % (processor(), machine())
@@ -1195,7 +1199,10 @@ class microVIEW ( Frame ):
 		self.after(10,self.UpdateTimestamp())
 	def UpdateTimestamp ( self ):
 		if Globals.timestampEnabled or len(self.identify) > 0:
-			t = self.identify
+			if len(self.identify) > 0 and Globals.timestampEnabled:
+				t = self.identify + '\n'
+			elif len(self.identify) > 0: t = self.identify
+			else: t = ''
 			if Globals.timestampEnabled:
 				try:	t = t + dt.datetime.now().strftime(Globals.defaulttimestampformat)
 				except:	t = t + self.language.GetText('Bad Format!') # Should never get here...

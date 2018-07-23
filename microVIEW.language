@@ -1,7 +1,7 @@
 [English]
 basic = Basic
 brightness = Brightness
-contrast = Constrast
+contrast = Contrast
 saturation = Saturation
 sharpness = Sharpness
 transparancy = Transparancy
@@ -259,7 +259,7 @@ ethernetisnotconnected = Ethernet (eth0) non connesso
 [Español]
 basic = Básico
 brightness = Brightness
-contrast = Constrast
+contrast = Contrast
 saturation = Saturation
 sharpness = Sharpness
 transparancy = Transparancy
@@ -323,7 +323,7 @@ ethernetisnotconnected = Ethernet (eth0) no está conectado
 [Nederlands]
 basic = Basis-
 brightness = Brightness
-contrast = Constrast
+contrast = Contrast
 saturation = Saturation
 sharpness = Sharpness
 transparancy = Transparancy
