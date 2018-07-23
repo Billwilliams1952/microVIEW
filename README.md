@@ -76,6 +76,47 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 | picamera   | The python interface to the PiCamera hardware. See https://picamera.readthedocs.io/en/release-1.13/install.html |
 | PIL / Pillow | The Pillow fork of the Python Image Library. One issue is with PIL ImageTk under Python 3.x. It was not installed on my RPI. If you have similar PIL Import Errors use:  **sudo apt-get install python3-pil.imagetk**. |
 
+## Installation on a Fresh Image
+
+On a fresh install of Raspbian
+
+(1) Update software sources. Open the terminal and enter:
+
+	sudo apt-get update
+
+(2) Once the update is complete, update everything to the latest version by entering:
+
+	sudo apt-get upgrade
+
+(3) Once the software is upgraded, install ImageTk for python2 by entering:
+
+	sudo apt-get install python-imaging-tk
+
+(4) Then install ImageTk for python3 by entering:
+
+	sudo apt-get install python3-pil.imagetk
+
+(5) Finally, install netifaces by entering:
+
+	sudo pip3 install netifaces		for Python3 or
+	sudo pip install netifaces		for Python2
+
+(6) If there is a black border of unused pixels around the screen display, you’ll need to disable overscan, otherwise the button overlays won’t line up with the actual buttons underneath the preview. Edit the /boot/config.txt file by opening up a terminal and entering the following command:
+
+	sudo nano /boot/config.txt
+
+(6.1) Find and uncomment the disable_overscan=1 line by deleting the ‘#’ character:
+
+	disable_overscan=1
+
+(6.2) Save then exit by entering Ctrl+X and then pressing Y to save the file.
+
+(7) Make sure you enable the camera. On the main menu, select Preferences, then ‘Raspberry Pi Configuration’. Once the configuration screen is up, select Interfaces, and Enable the Camera.
+
+(8) Reboot your RPI. The black border should be gone, the Camera should work, and microVIEW should start up using the command:
+
+	sudo python3 microVIEW.py
+
 ## License
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
