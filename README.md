@@ -1,6 +1,8 @@
 # microVIEW
 PiCamera user interface optimized for a touchscreen display. 
 
+![Image](Assets\close.png?raw=true "Title")
+
 ## Motivation
 
 This work is a result of a collaboration between myself and Michael Axelsson, Professor, University of Gothenburg, Department of Biological and Environmental Sciences (http://www.bioenv.gu.se/personal/Axelsson_Michael/). Professor Axelsson has been investigating using inexpensive hardware and 3-D printed parts in order to capture video/photos from various types of microscopes. The final hardware/software solution would be primarily targeted to a teaching environment. After research, Professor Axelsson had selected the Raspberry PI (RPI) Model 3 as the computer system. Coupled with an RPI camera (V2 model) with flex cable, an SD card (for the OS), a power cable, a touchscreen display (Sundfounder 10” screen (https://www.sunfounder.com/10-1-touch-screen.html) with a 3D printed enclosure, and 3-D printed parts used to mount the RPI camera to each microscope; he had an inexpensive system that offered high resolution video and photo capture capabilities. What was needed was software. Professor Axelsson contacted me about using my PiCamera software (https://github.com/Billwilliams1952/PiCameraApp) to control the system. However, after further discussions, I decided to develop a user interface from scratch targeting a touchscreen display.
@@ -22,7 +24,6 @@ When **microVIEW** is first started, it creates a default **microVIEW.INI** file
 | defaulttimelapsephotodir | /home/pi/Pictures | Default location for photos captured by timelapse |
 | defaulttimelapsevideodir | /home/pi/Videos | Default location for videos captured by timelapse |
 | defaultfilesdir | /home/pi/Documents | Default location for any text data created by **microVIEW** |
-
   
 #### Under [Network]
 
