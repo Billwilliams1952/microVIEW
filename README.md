@@ -75,6 +75,7 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 | :--------- | :-------------------------------------------------- |
 | picamera   | The python interface to the PiCamera hardware. See https://picamera.readthedocs.io/en/release-1.13/install.html |
 | PIL / Pillow | The Pillow fork of the Python Image Library. One issue is with PIL ImageTk under Python 3.x. It was not installed on my RPI. If you have similar PIL Import Errors use:  **sudo apt-get install python3-pil.imagetk**. |
+| netifaces | Library to help discover IP addresses. Install using **sudo pip3 install netifaces** for Python3 or **sudo pip install netifaces** for Python2 |
 
 ## Installation on a Fresh Image
 
@@ -113,9 +114,9 @@ On a fresh install of Raspbian
 
 (7) Make sure you enable the camera. On the main menu, select Preferences, then ‘Raspberry Pi Configuration’. Once the configuration screen is up, select Interfaces, and Enable the Camera.
 
-(8) Reboot your RPI. The black border should be gone, the Camera should work, and microVIEW should start up using the command:
+(8) Reboot your RPI. The black border should be gone, the Camera should work. After changing to the directory containing **microVIEW**, it should start up using the command:
 
-	sudo python3 microVIEW.py
+	sudo python3 microVIEW.py or sudo python microVIEW.py
 
 ## License
 
