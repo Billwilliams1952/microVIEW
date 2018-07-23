@@ -34,6 +34,7 @@ If running under Python 3.X, a simple web server is provided, allowing the user 
 
 Both Video and Photo timelapse capture are provided.
 
+**microVIEW** supports multiple languages via the **microVIEW.language** file. This file contains many (not all - yet) of the labels, button/control text and messages used by **microVIEW** interface, ordered by [Language] sections. Currently there are entries for English, Svenska (Swedish), Deutsche (German), Italiano (Italian), Español (Spanish), Nederlands (Dutch), and Français (French). Please note that many translations may not be accurate usage (since I was just using Google Translate). Also note that not all text has translations (yet). Please feel free to update the file and send me the updates as they are completed.  If the **microVIEW.language** file is missing at startup, a default **microVIEW.language** file file is created with just English translations.
 
 ## Installation
 
