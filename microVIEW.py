@@ -566,7 +566,7 @@ class microVIEW ( Frame ):
 			.grid(row=0,column=0,sticky='ew',pady=(20,20))
 
 		f = ('Helvetica',16)
-		Label(AboutMeTab,text='Copyright (C) 2018',
+		Label(AboutMeTab,text='Version 0.1 - Copyright (C) 2018',
 			anchor='center',font=f,
 			foreground=Globals.defaultForegroundColor,
 			background=Globals.defaultBackgroundColor).grid(row=1,column=0,sticky='ew')
