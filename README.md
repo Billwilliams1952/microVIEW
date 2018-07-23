@@ -13,7 +13,7 @@ This version of **microVIEW** is optimized for a 1280x800 touchscreen display ru
 
 When **microVIEW** is first started, it creates a default **microVIEW.INI** file if one does not already exist. The default values may be edited to change many aspects of the program interface, file storage locations, and default camera programming values. Key **microVIEW.INI** data that the user may want to initially edit include:
 
-### Under [Preferences]
+#### Under [Preferences]
 
 | INI Field    | Default Value | Notes |
 | :--------- | :-------------------------- | :------------------------------------------------------ |
@@ -24,7 +24,7 @@ When **microVIEW** is first started, it creates a default **microVIEW.INI** file
 | defaultfilesdir | /home/pi/Documents | Default location for any text data created by **microVIEW** |
 
   
-### Under [Network]
+#### Under [Network]
 
 | INI Field    | Default Value | Notes |
 | :--------- | :-------------------------- | :------------------------------------------------------ |
