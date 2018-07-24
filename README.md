@@ -44,6 +44,8 @@ When started, **microVIEW** displays a fullscreen preview of the video. Along th
 
 #### Options Screen
 
+![image](https://user-images.githubusercontent.com/3778024/43115489-b6846e3c-8ec9-11e8-88cb-8cb0f82c217a.png)
+
 Basic camera programming functions are provided. In order to simplify the user interface, many of the advanced options for programming the camera are not provided. However, should the need arise, additional functionality can be readily added.
 
 If running under Python 3.X, a simple HTTP web server is provided, allowing the user to stream the video over a local network. Both Ethernet and WiFi are supported. The controls are located under **Preferences \| Network**. Once the HTTP Server is turned ON, it cannot be turned OFF. To enable / disable video streaming, toggle the Video Stream ON or OFF.
