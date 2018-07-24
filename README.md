@@ -38,7 +38,7 @@ When started, **microVIEW** displays a fullscreen preview of the video. Along th
 ![Image1](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/close.png?raw=true)		![Image2](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/options.png?raw=true)	![Image3](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/camera.png?raw=true)      ![Image4](https://github.com/Billwilliams1952/microVIEW/blob/master/Assets/video.png?raw=true)
 
 * The first button closes **microVIEW**.
-* The second button displays the options screen.
+* The second button displays the options screen - see discussion below.
 * The third button takes a picture and saves the photo under the directory specified by defaultphotodir.
 * The fourth button starts video capture. While video capture is in progress, the video button will flash red. To stop the video capture, press the video capture button again. The video will be saved under the directory specified by defaultvideodir.
 
@@ -46,17 +46,28 @@ When started, **microVIEW** displays a fullscreen preview of the video. Along th
 
 ![image](https://user-images.githubusercontent.com/3778024/43115489-b6846e3c-8ec9-11e8-88cb-8cb0f82c217a.png)
 
-Basic camera programming functions are provided. In order to simplify the user interface, many of the advanced options for programming the camera are not provided. However, should the need arise, additional functionality can be readily added.
+##### Basic Tab
+Basic camera programming functions are provided. 
 
-If running under Python 3.X, a simple HTTP web server is provided, allowing the user to stream the video over a local network. Both Ethernet and WiFi are supported. The controls are located under **Preferences \| Network**. Once the HTTP Server is turned ON, it cannot be turned OFF. To enable / disable video streaming, toggle the Video Stream ON or OFF.
+##### Advanced Tab
+* **Camera** Tab: Contains additional camera programming. In order to simplify the user interface, many of the advanced options for programming the camera are not provided. However, should the need arise, additional functionality can be readily added.
+* **Annotation** Tab: Contains options for displaying a timestamp, frame number and/or the headingLevel1 or headingLevel2 text. The text color and background color can be adjusted.
 
-Both Video and Photo timelapse capture are provided under **Timelapse \| Photos** and **Timelapse \| Videos**. For photos, the rate of photo capture (e.g. every 10 seconds), and either the stop count (e.g. stop after 10 pictures) or delta time (e.g. stop after 2 hours) may be specified. Photo timelapse may occur even during a video capture or video timelapse. For videos, the rate of video capture (e.g. capture every 30 seconds), the video length (e.g. 10 seconds) and either the stop count (e.g. stop after 10 videos) or delta time (e.g. stop after 2 hours) may be specified. During Video Timelapse, the Video capture button on the main screen is disabled.
+##### Time lapse Tab
+Both Video and Photo timelapse capture are provided under **Timelapse \| Photos** and **Timelapse \| Videos**. 
+* **Photos** Tab: Set the rate of photo capture (e.g. every 10 seconds), and either the stop count (e.g. stop after 10 pictures) or delta time (e.g. stop after 2 hours). Photo timelapse may occur even during a video capture or video timelapse. 
+* **Videos** Tab: Set the rate of video capture (e.g. capture every 30 seconds), the video length (e.g. 10 seconds) and either the stop count (e.g. stop after 10 videos) or delta time (e.g. stop after 2 hours). During Video Timelapse, the Video capture button on the main screen is disabled.
 
-Multiple languages are supported via the **microVIEW.language** file. This file contains many (not all - yet) of the labels, button/control text and messages used by **microVIEW** interface, ordered by [Language] sections. Currently there are entries for English, Svenska (Swedish), Deutsche (German), Italiano (Italian), Español (Spanish), Nederlands (Dutch), and Français (French). Please note that many translations may not be accurate usage (since I was just using Google Translate). Also note that not all text has translations (yet). Please feel free to update the file and send me the updates as they are completed.  If the **microVIEW.language** file is missing at startup, a default **microVIEW.language** file is created with just English translations. When editing the **microVIEW.language** file, the user may insert a newline character (\n) to force a line break in the text. This is useful when trying to fit text within a control or label. For example:
+##### Preferences Tab
+* **Files** Tab: Set the default directories for saving photos and videos.
+* **Network** Tab: A simple HTTP web server is provided, allowing the user to stream the video over a local network. Both Ethernet and WiFi are supported. The controls are located under **Preferences \| Network**. Once the HTTP Server is turned ON, it cannot be turned OFF. To enable / disable video streaming, toggle the Video Stream ON or OFF.
+* **Interface** Tab: Multiple languages are supported via the **microVIEW.language** file. This file contains many (not all - yet) of the labels, button/control text and messages used by **microVIEW** interface, ordered by [Language] sections. Currently there are entries for English, Svenska (Swedish), Deutsche (German), Italiano (Italian), Español (Spanish), Nederlands (Dutch), and Français (French). Please note that many translations may not be accurate usage (since I was just using Google Translate). Also note that not all text has translations (yet). Please feel free to update the file and send me the updates as they are completed.  If the **microVIEW.language** file is missing at startup, a default **microVIEW.language** file is created with just English translations. When editing the **microVIEW.language** file, the user may insert a newline character (\n) to force a line break in the text. This is useful when trying to fit text within a control or label. For example:
 
 ```
     dynamicrangecompression = Dynamisk\nOmfångskompression:
 ```
+* **About** Tab: Contains **microVIEW** version information, license information, and credits.
+
 
 ## Version History
 
@@ -64,7 +75,7 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 
 | Version    | Notes                               |
 | :--------- | :----------------------------------------------------- |
-| 0.1 | <ul><li>Initial release. Tested under Python 2.7X and 3.5.3</li><li>Tested using the RPI V2 camera module </li></ul> |
+| 0.1 | <ul><li>Initial release. Tested under Python 3.5.3. Note Python 3.X is **required**</li><li>Tested using the RPI V2 camera module </li></ul> |
 
 ## Known Issues
 
@@ -82,17 +93,17 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 
 ## API Reference
 
-**microVIEW** has been developed using Python ver 2.7.13 and Python ver 3.5.3. In addition, it uses the following additonal Python libraries. Refer to **Preferences \| About \| About** for the exact versions used.
+**microVIEW** has been developed using Python ver 3.5.3. In addition, it uses the following additonal Python libraries. Refer to **Preferences \| About \| About** for the exact versions used.
 
 | Library    | Usage                                               |
 | :--------- | :-------------------------------------------------- |
 | picamera   | The python interface to the PiCamera hardware. See https://picamera.readthedocs.io/en/release-1.13/install.html |
 | PIL / Pillow | The Pillow fork of the Python Image Library. One issue is with PIL ImageTk under Python 3.x. It was not installed on my RPI. If you have similar PIL Import Errors use:  **sudo apt-get install python3-pil.imagetk**. |
-| netifaces | Library to help discover IP addresses. Install using **sudo pip3 install netifaces** for Python3 or **sudo pip install netifaces** for Python2 |
+| netifaces | Library to help discover IP addresses. Install using **sudo pip3 install netifaces** |
 
 ## Installation
 
-Download the zip file and extract to a directory of your choosing. To run, open a terminal, change to the directory containing the source files, and enter **sudo python microVIEW.py** or **sudo python3 microVIEW.py**.  Note:, if you run under a Python version lower than 3.0, then the Webserver interface will not be available.
+Download the zip file and extract to a directory of your choosing. To run, open a terminal, change to the directory containing the source files, and enter **sudo python3 microVIEW.py**.
 
 ### Installation on a Fresh Image
 
@@ -106,34 +117,29 @@ On a fresh install of Raspbian
 
 	sudo apt-get upgrade
 
-(3) Once the software is upgraded, install ImageTk for python2 by entering:
-
-	sudo apt-get install python-imaging-tk
-
-(4) Then install ImageTk for python3 by entering:
+(3) Then install ImageTk for python3 by entering:
 
 	sudo apt-get install python3-pil.imagetk
 
-(5) Finally, install netifaces by entering:
+(4) Finally, install netifaces by entering:
 
-	sudo pip3 install netifaces		for Python3 or
-	sudo pip install netifaces		for Python2
+	sudo pip3 install netifaces
 
-(6) If there is a black border of unused pixels around the screen display, you’ll need to disable overscan, otherwise the button overlays won’t line up with the actual buttons underneath the preview. Edit the /boot/config.txt file by opening up a terminal and entering the following command:
+(5) If there is a black border of unused pixels around the screen display, you’ll need to disable overscan, otherwise the button overlays won’t line up with the actual buttons underneath the preview. Edit the /boot/config.txt file by opening up a terminal and entering the following command:
 
 	sudo nano /boot/config.txt
 
-(6.1) Find and uncomment the disable_overscan=1 line by deleting the ‘#’ character:
+(5.1) Find and uncomment the disable_overscan=1 line by deleting the ‘#’ character:
 
 	disable_overscan=1
 
-(6.2) Save then exit by entering Ctrl+X and then pressing Y to save the file.
+(5.2) Save then exit by entering Ctrl+X and then pressing Y to save the file.
 
-(7) Make sure you enable the camera. On the main menu, select Preferences, then ‘Raspberry Pi Configuration’. Once the configuration screen is up, select Interfaces, and Enable the Camera.
+(6) Make sure you enable the camera. On the main menu, select Preferences, then ‘Raspberry Pi Configuration’. Once the configuration screen is up, select Interfaces, and Enable the Camera.
 
-(8) Reboot your RPI. The black border should be gone, the Camera should work. After changing to the directory containing **microVIEW**, it should start up using the command:
+(7) Reboot your RPI. The black border should be gone, the Camera should work. After changing to the directory containing **microVIEW**, it should start up using the command:
 
-	sudo python3 microVIEW.py or sudo python microVIEW.py
+	sudo python3 microVIEW.py
 
 ## License
 
