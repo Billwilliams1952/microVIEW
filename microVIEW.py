@@ -89,6 +89,8 @@ class microVIEW ( Frame ):
 		self.root.columnconfigure(1,weight=1)	# size frames to window
 		self.width = width
 		self.height = height
+		# 2/25/2019 Added for mouse on main screen
+		root.bind('<Motion>', self.MouseMove) 
 
 		self.PhotoImg = self.GetImage('Assets/camera.png')
 		self.TakePhotoImg = self.GetImage('Assets/takePhoto.png')
@@ -96,6 +98,7 @@ class microVIEW ( Frame ):
 		self.StopVideoImg = self.GetImage('Assets/videoStop.png')
 		self.OptionsImg = self.GetImage('Assets/options.png')
 		self.CloseImg = self.GetImage('Assets/close.png')
+		self.Cursor = self.GetImage('Assets/mouse1.png')
 
 		Style().configure('F.TFrame',background=Globals.defaultBackgroundColor,
 			foreground=Globals.defaultBackgroundColor)
@@ -137,6 +140,7 @@ class microVIEW ( Frame ):
 		self.VideoTimelapse = False
 		self.PhotoTimelapse = False
 		self.InOptions = False
+		self.AllowMouseCursor = True	# 2/25/2019 Added for mouse on main screen
 
 		self.back = Label(background=Globals.defaultBackgroundColor)
 		self.back.place(x=0,y=0,width=width,height=height)
@@ -266,33 +270,58 @@ class microVIEW ( Frame ):
 		f10 = Frame(CameraTab,style='F.TFrame')
 		f10.grid(row=0,column=0,sticky='nsew')
 
-		LangLabel(f10,text='Use Video Port',
+		LangLabel(f10,text='Flip Horizontal',
 			language=self.language).grid(row=0,column=1,sticky='W')
+		self.FlipHorizontal = PushButton(f10,width=50,
+			value=Globals.flipHorizontal,text=['OFF','ON'],
+			callback=self.ToggleFlipHorizontal,language=self.language)
+		self.FlipHorizontal.grid(row=0,column=0,sticky='W')
+		self.ToggleFlipHorizontal(Globals.flipHorizontal)
+		
+		LangLabel(f10,text='Flip Vertical',
+			language=self.language).grid(row=0,column=3,sticky='W')
+		self.FlipVertical = PushButton(f10,width=50,
+			value=Globals.flipVertical,text=['OFF','ON'],
+			callback=self.ToggleFlipVertical,language=self.language)
+		self.FlipVertical.grid(row=0,column=2,sticky='W',padx=(35,0))
+		self.ToggleFlipVertical(Globals.flipVertical)
+		
+		LangLabel(f10,text='Rotate',
+			language=self.language).grid(row=0,column=5,sticky='W')
+		self.Rotate = PushButton(f10,width=50,
+			value=0,text=None,
+			callback=self.ToggleRotate,language=self.language)
+		self.Rotate.grid(row=0,column=4,sticky='W',padx=(35,0))
+		self.Rotate.text = str(Globals.rotateValue)
+		self.camera.rotation = Globals.rotateValue
+
+		LangLabel(f10,text='Use Video Port',
+			language=self.language).grid(row=1,column=1,sticky='W',pady=(15,0))
 		self.UseVideoPort = PushButton(f10,width=50,
 			value=Globals.useVideoPort,text=['OFF','ON'],
 			callback=self.ToggleUseStillPort,language=self.language)
-		self.UseVideoPort.grid(row=0,column=0,sticky='W')
+		self.UseVideoPort.grid(row=1,column=0,sticky='W',pady=(15,0))
 
 		LangLabel(f10,text='Video Stabilization',
-			language=self.language).grid(row=0,column=3,sticky='W')
+			language=self.language).grid(row=1,column=3,sticky='W',pady=(15,0))
 		self.VideoStab = PushButton(f10,width=50,
 			value=Globals.videoStabilization,text=['OFF','ON'],
 			callback=self.ToggleVideoStabilization,language=self.language)
-		self.VideoStab.grid(row=0,column=2,sticky='W',padx=(35,0))
+		self.VideoStab.grid(row=1,column=2,sticky='W',padx=(35,0),pady=(15,0))
 
 		LangLabel(f10,text='Image Denoise',
-			language=self.language).grid(row=1,column=1,sticky='W',pady=(15,0))
+			language=self.language).grid(row=2,column=1,sticky='W',pady=(15,0))
 		self.ImageDenoise = PushButton(f10,width=50,
 			value=Globals.imageDenoise,text=['OFF','ON'],
 			callback=self.ToggleImageDenoise,language=self.language)
-		self.ImageDenoise.grid(row=1,column=0,sticky='W',pady=(15,0))
+		self.ImageDenoise.grid(row=2,column=0,sticky='W',pady=(15,0))
 
 		LangLabel(f10,text='Video Denoise',
-			language=self.language).grid(row=1,column=3,sticky='W',pady=(15,0))
+			language=self.language).grid(row=2,column=3,sticky='W',pady=(15,0))
 		self.VideoDenoise = PushButton(f10,width=50,
 			value=Globals.videoDenoise,text=['OFF','ON'],
 			callback=self.ToggleVideoDenoise,language=self.language)
-		self.VideoDenoise.grid(row=1,column=2,sticky='W',padx=(35,0),pady=(15,0))
+		self.VideoDenoise.grid(row=2,column=2,sticky='W',padx=(35,0),pady=(15,0))
 
 		f10 = Frame(CameraTab,style='F.TFrame')
 		f10.grid(row=1,column=0,sticky='nsew')
@@ -459,10 +488,21 @@ class microVIEW ( Frame ):
 			callback=self.LanguageChanged,
 			value=index,width=130)
 		self.textLanguage.grid(row=0,column=1,sticky='ew',padx=(20,0))
-
+		
+		# 2/25/2019 Added for mouse on main screen
+		f10 = Frame(InterfaceTab,style='F.TFrame')
+		f10.grid(row=1,column=0,sticky='nsew',pady=(15,0))
+		f10.columnconfigure(2,weight=1)
+		self.ShowMouseColorButton = PushButton(f10,width=50,
+			value=self.AllowMouseCursor,text=['OFF','ON'],
+			callback=self.AllowMouseCursorButton,language=self.language)
+		self.ShowMouseColorButton.grid(row=0,column=0,sticky='W')
+		LangLabel(f10,text='Enable Mouse Overlay',
+			language=self.language).grid(row=0,column=1,sticky='E')		
+			
 		l = LangLabel(InterfaceTab,text='Add additional controls to size text and controls',
 			language=self.language,style='Label.TLabel',wraplength=500)
-		l.grid(row=1,column=0,pady=(20,0),columnspan=2)
+		l.grid(row=2,column=0,pady=(20,0),columnspan=2)
 
 		#---------------------- Files --------------------
 		l = LangLabel(FilesTab,style='Label.TLabel',language=self.language,
@@ -566,7 +606,7 @@ class microVIEW ( Frame ):
 			.grid(row=0,column=0,sticky='ew',pady=(20,20))
 
 		f = ('Helvetica',16)
-		Label(AboutMeTab,text='Version 0.1 - Copyright (C) 2018',
+		Label(AboutMeTab,text='Version 0.2 - Copyright (C) 2018-2019',
 			anchor='center',font=f,
 			foreground=Globals.defaultForegroundColor,
 			background=Globals.defaultBackgroundColor).grid(row=1,column=0,sticky='ew')
@@ -905,6 +945,17 @@ class microVIEW ( Frame ):
 	'''
 	Advanced options tab
 	'''
+	def ToggleFlipHorizontal ( self, val ):
+		self.camera.hflip = val
+		Globals.flipHorizontal = val
+	def ToggleFlipVertical ( self, val ):
+		self.camera.vflip = val
+		Globals.flipVertical = val
+	def ToggleRotate ( self, val ):
+		r = (self.camera.rotation + 90) % 360
+		self.camera.rotation = r
+		Globals.rotateValue = r
+		self.Rotate.text = str(r)
 	def ToggleUseStillPort ( self, val ):
 		Globals.useVideoPort = val
 	def ToggleImageDenoise ( self, val ):
@@ -1348,9 +1399,25 @@ class microVIEW ( Frame ):
 		self.VideoStartOverlay = self.camera.add_overlay(self.StopVideoImg.tobytes(),
 			size=self.CloseImg.size,format='rgba',layer=3,
 			fullscreen=False,window=(self.xList[3],locy,w,h))
+		# 2/25/2019 Added for mouse on main screen
+		if self.AllowMouseCursor:
+			self.MouseOverlay = self.camera.add_overlay(self.Cursor.tobytes(),
+				size=self.Cursor.size,format='rgba',layer=5,
+				fullscreen=False,window=(self.winfo_pointerx(),self.winfo_pointery(),w,h))
 	def RemoveOverlays ( self ):
 		for i in range(len(self.camera.overlays)-1,-1,-1):
 			self.camera.remove_overlay(self.camera.overlays[i])
+	
+	# 2/25/2019 Added for mouse on main screen
+	def AllowMouseCursorButton ( self, state ):
+		self.AllowMouseCursor = self.ShowMouseColorButton.value
+	# 2/25/2019 Added for mouse on main screen
+	def MouseMove ( self, event ):
+		if self.AllowMouseCursor:
+			try:		# NO NO NO --- something is wrong here.
+				self.MouseOverlay.window = (self.winfo_pointerx(),self.winfo_pointery(),75,75)
+			except:
+				pass
 	'''
 	Generic procedure to show/hide all of the controls under the
 	preview window.
