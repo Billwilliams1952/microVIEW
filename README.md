@@ -7,6 +7,8 @@ This work is a result of a collaboration between myself and Michael Axelsson, Pr
 
 Professor Axelsson has documented the R&D effort - see http://microsurgery.se/ under the R/D tab.
 
+The work has been documented at https://blog.pi-top.com/2019/03/05/can-you-use-a-pi-top-for-microsurgery-training/
+
 ## Design
 
 This version of **microVIEW** is optimized for a 1280x800 touchscreen display running in fullscreen mode. Where possible, all controls are simple pushbuttons or sliders that are created specifically for **microVIEW**. There are no text fields in the option panels. The buttons and sliders have been enlarged to minimize 'touch' errors. In general during normal opeation, a keyboard should not be needed.
@@ -76,6 +78,7 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 | Version    | Notes                               |
 | :--------- | :----------------------------------------------------- |
 | 0.1 | <ul><li>Initial release. Tested under Python 3.5.3. Note Python 3.X is **required**</li><li>Tested using the RPI V2 camera module </li></ul> |
+| 0.2 | Added support for a mouse overlay |
 
 ## Known Issues
 
