@@ -79,6 +79,7 @@ Refer to **Preferences \| About \| About** for the version number of **microVIEW
 | :--------- | :----------------------------------------------------- |
 | 0.1 | <ul><li>Initial release. Tested under Python 3.5.3. Note Python 3.X is **required**</li><li>Tested using the RPI V2 camera module </li></ul> |
 | 0.2 | Added support for a mouse overlay |
+| 0.3 | Added support for higher resolution photos with the V2 camera module |
 
 ## Known Issues
 
