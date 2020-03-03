@@ -244,7 +244,11 @@ class microVIEW ( Frame ):
 				 'WXGA_2: (1280x800)', 'SXGA: (1280x1024)', 'SXGA+: (1400x1050)',
 				 'UXGA: (1600x1200)', 'WSXGA+: (1680x1050)', 'HD 1080: (1920x1080)',
 				 'WUXGA: (1920x1200)', '2K: (2048x1080)', 'QXGA: (2048x1536)',
-				 'WQXGA: (2560x1600)', 'WQXGA: (2592x1944)' ]
+				 'WQXGA: (2560x1600)', 'WQXGA: (2592x1944)']
+		# 3-3-2020 
+		# If V2 Camera add additional resolution of 'Max Photo: (3280x2464)'
+		if self.camera.revision == "imx219": 	# V2 camera
+			res.append('Max Photo: (3280x2464)')
 		self.resolution = Slider(BasicPage,text=res,padding=(25,25,25,25),
 			language=self.language,
 			background=Globals.defaultBackgroundColor,
@@ -606,7 +610,7 @@ class microVIEW ( Frame ):
 			.grid(row=0,column=0,sticky='ew',pady=(20,20))
 
 		f = ('Helvetica',16)
-		Label(AboutMeTab,text='Version 0.2 - Copyright (C) 2018-2019',
+		Label(AboutMeTab,text='Version 0.3 - Copyright (C) 2018-2020',
 			anchor='center',font=f,
 			foreground=Globals.defaultForegroundColor,
 			background=Globals.defaultBackgroundColor).grid(row=1,column=0,sticky='ew')
@@ -938,7 +942,14 @@ class microVIEW ( Frame ):
 		except:	pass
 		s = val.split(':') # text string like --> 'CGA: (320x200)'
 		s1 = s[1].replace('(','').replace(')','').strip().split('x')
-		self.camera.resolution = (int(s1[0]),int(s1[1]))
+		# 3-3-2020 force recording to never be more than 1920x1080
+		# The resolution for the video cannot exceed 1920x1080, so that 
+		# is the max....
+		self.PhotoResolution = (int(s1[0]),int(s1[1]))
+		if int(s1[0]) > 1920:
+			self.camera.resolution = (1920,1080)
+		else:
+			self.camera.resolution = self.PhotoResolution
 		Globals.defaultResolution = self.resolution.value
 		try:	self.stream.recording = recording
 		except:	pass
@@ -1325,7 +1336,11 @@ class microVIEW ( Frame ):
 		if not self.InOptions:
 			self.TakePhotoOverlay.layer = 5
 			self.PhotoOverlay.layer = 0
+		if self.PhotoResolution[0] > 1920:
+			self.camera.resolution = self.PhotoResolution
 		self.camera.capture(filename,use_video_port=Globals.useVideoPort)
+		if self.PhotoResolution[0] > 1920:
+			self.camera.resolution = (1920,1080)
 		if not self.InOptions:
 			self.TakePhotoOverlay.layer = 0
 			self.PhotoOverlay.layer = 5

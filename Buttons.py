@@ -181,6 +181,11 @@ class MultiTouchButton ( ttk.Frame ):
 
 class PushButton ( ttk.Frame ):
 	def __init__(self,parent,*args,**kargs):
+		'''
+		Add list of tuples - [('text',value),('text',value),...]
+		list[i][0] = text list[i][1] = value
+		immutable values....
+		'''
 		ttk.Frame.__init__(self,parent)
 		self.config(style='FA.TFrame')
 		self._parent = parent
@@ -207,6 +212,7 @@ class PushButton ( ttk.Frame ):
 		self._circle = self._canvas.create_oval(0, 0, self._width, self._height)
 		self._textArea = self._canvas.create_text((int(self._width/2),
 			int(self._height/2)),font=Globals.defaultFont)
+		self._buttonText = ''	# Hack to allow other text for buttons
 		self.DrawText()
 		#if self._callback:
 			#self._callback(self._state)	# True is Pressed ON, else False
@@ -224,6 +230,15 @@ class PushButton ( ttk.Frame ):
 	def enable ( self, val ):
 		self._enabled = bool(val)
 		self.DrawText()
+	@property
+	def text ( self ):
+		if self._text != None:
+			return self.lang.GetText(self._text[self._state])
+		return self._buttonText
+	@text.setter
+	def text ( self, txt ):
+		self._buttonText = txt
+		self.DrawText()
 	def DrawText ( self ):
 		if self._enabled:
 			if self._state:
@@ -235,9 +250,12 @@ class PushButton ( ttk.Frame ):
 		else:
 			fillc = '#303030'
 			fillt = Globals.defaultBackgroundColor
-		if self.lang:	txt = self.lang.GetText(self._text[self._state])
-		else:	txt = self._text[self._state]
 		self._canvas.itemconfig(self._circle,fill=fillc)
+		if self._text != None:
+			if self.lang:	txt = self.lang.GetText(self._text[self._state])
+			else:	txt = self._text[self._state]
+		else:
+			txt = self.lang.GetText(self._buttonText)
 		self._canvas.itemconfig(self._textArea,fill=fillt,text=txt)
 	def Pressed ( self, event ):
 		if not self._enabled: return

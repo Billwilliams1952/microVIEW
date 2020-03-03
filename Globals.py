@@ -53,6 +53,10 @@ class Globals:
 	exposureCompensation = 0	# -25 to 25
 	meteringMode = 0				# 'average' = 0
 	drcStrength = 0				#
+	# 10/1/2018
+	flipHorizontal = False
+	flipVertical = False
+	rotateValue = 0
 
 	# [Video]
 	defaultVideoTimeout = 30	# a value of 0 is NO timeout

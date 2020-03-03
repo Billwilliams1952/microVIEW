@@ -96,6 +96,9 @@ def LoadPreferences ( filename ):
 	Globals.exposureCompensation = ReadConfigValue ( config, section, 'ExposureCompensation', int )
 	Globals.meteringMode = ReadConfigValue ( config, section, 'MeteringMode', int )
 	Globals.drcStrength = ReadConfigValue ( config, section, 'DrcStrength', int )
+	Globals.flipHorizontal = ReadConfigValue ( config, section, 'FlipHorizontal', bool )
+	Globals.flipVertical = ReadConfigValue ( config, section, 'FlipVertical', bool )
+	Globals.rotateValue = ReadConfigValue ( config, section, 'RotateValue', int )
 
 	section = 'Video'
 	Globals.defaultVideoTimeout = ReadConfigValue ( config, section, 'DefaultVideoTimeout', int )
@@ -220,6 +223,9 @@ def SavePreferences ( filename, createNewFile ):
 	UpdateConfigValue ( config, section, 'ExposureCompensation', Globals.exposureCompensation )
 	UpdateConfigValue ( config, section, 'MeteringMode', Globals.meteringMode )
 	UpdateConfigValue ( config, section, 'DrcStrength', Globals.drcStrength )
+	UpdateConfigValue ( config, section, 'FlipHorizontal', Globals.flipHorizontal )
+	UpdateConfigValue ( config, section, 'FlipVertical', Globals.flipVertical )
+	UpdateConfigValue ( config, section, 'RotateValue', Globals.rotateValue )
 
 	section = 'Video'
 	UpdateConfigValue ( config, section, 'DefaultVideoTimeout', Globals.defaultVideoTimeout )
